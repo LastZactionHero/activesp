@@ -139,7 +139,7 @@ module ActiveSP
         [u.host, u.port]
       end
       Net::HTTP.start(*@open_params) do |http|
-        request = Net::HTTP::Head.new(URL(url).full_path.gsub(/ /, "%20"))
+        request = Net::HTTP::Head.new(URL(url).full_path.gsub(/ /, "%20"), {'User-Agent' => "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)" } )
         if @login
           case auth_type
           when :ntlm
